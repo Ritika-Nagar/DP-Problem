@@ -1,0 +1,28 @@
+public class ClimbingStairs{
+	public int countStairs(int n){// n is no of stairs 
+		// using Memoisation
+		int[] M= new int [n+1];
+		if(n==0 || n==1){
+		return 1;
+		}
+		if(M[n]>0){
+		return M[n];
+		}else{
+		M[n]=countStairs(n-1) +countStairs(n-2);
+		}
+		retrun M[n];
+
+	}
+	public int countstairs(int n){
+	// using tabulation
+	int [] M= new int [n+1]; // This takes complexity of O(n) since we need to only traverse the array 
+	M[0]=1;
+	M[1]=1;
+
+	for(int i=2;i<=n;i++){
+		M[i]=M[i-1]+M[i-2];
+	}
+	return M[n];
+
+	}
+}
